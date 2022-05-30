@@ -1,0 +1,10 @@
+<!-- form to add the user -->
+<!-- output emitter sending the new addedd user -->
+<app-user-add-form (addUser)="newUserReceived($event)"></app-user-add-form>
+
+<!-- listing the user -->
+<!-- <app-user-list [users]="users$ | async"></app-user-list> -->
+<input type="text" (keyUp)="filterInputs($event)" />
+<!-- dffd/ -->
+
+<app-user-list [users]="outputUser$ | async"></app-user-list>
