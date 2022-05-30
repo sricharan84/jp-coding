@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   newUser = new BehaviorSubject<User>(null);
   newUser$ = this.newUser.asObservable();
 
-  filterSubject = new Subject();
+  filterSubject = new Subject<string>();
   filter$ = this.filterSubject.asObservable();
 
   cacheList: User[] = [];
@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
       if(user){
         this.cacheList.push(user);
       }
-      return [...this.cacheList.filter((user: User) => user.name === searchValue )];
+      return [...this.cacheList.filter((user: User) => searchValue.length ? user.name === searchValue : true )];
     })
   )
 
